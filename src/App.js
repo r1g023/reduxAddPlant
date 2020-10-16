@@ -1,35 +1,28 @@
-import React, { useState } from "react"
-import LoginForm from "./components/LoginForm.js"
-import "./App.css"
+import React, {useState} from 'react';
+import Header from "../src/components/Header/Header"
 
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import RegistrationForm from './components/Header/RegistrationForm';
 function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123",
-  }
-  const [user, setUser] = useState({ name: "", email: "" })
-  const [error, setError] = useState("")
-  const Login = (details) => {
-    console.log(details)
-  }
-
-  const LogOut = () => {
-    console.log("logout")
-  }
-  return (
+return (
+    <Router>
     <div className="App">
-      {user.email != "" ? (
-        <div className="welcome">
-          <h2>
-            welcome,<span>{user.name}</span>
-          </h2>
-          <button>LogOut</button>
-        </div>
-      ) : (
-        <LoginForm />
-      )}
-    </div>
-  )
+      <Header/>
+        <div className="container d-flex align-items-center flex-column">
+          <Switch>
+            <Route path="/" exact={true}>
+              <RegistrationForm />
+            
+            </Route>
+          </Switch>
+       </div>
+   </div>
+  </Router>
+  )  
 }
-
 export default App
