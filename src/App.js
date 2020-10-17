@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import RegistrationForm from './components/Header/RegistrationForm';
+import LoginForm from './components/LoginForm';
 function App() {
 return (
     <Router>
@@ -16,8 +17,8 @@ return (
         <div className="container d-flex align-items-center flex-column">
           <Switch>
             <Route path="/" exact={true}>
-              <RegistrationForm />
-            
+              {/* <RegistrationForm /> */}
+              <LoginForm />
             </Route>
           </Switch>
        </div>
