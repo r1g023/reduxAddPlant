@@ -1,23 +1,25 @@
-import React, { useState } from "react"
-import LoginForm from "./components/LoginForm.js"
-import "./App.css"
+import React, { useState } from "react";
+import LoginForm from "./components/LoginForm.js";
+import NavigationBar from "./components/NavigationBar";
+import "./App.css";
 
 function App() {
   const adminUser = {
     email: "admin@admin.com",
     password: "admin123",
-  }
-  const [user, setUser] = useState({ name: "", email: "" })
-  const [error, setError] = useState("")
+  };
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
   const Login = (details) => {
-    console.log(details)
-  }
+    console.log(details);
+  };
 
   const LogOut = () => {
-    console.log("logout")
-  }
+    console.log("logout");
+  };
   return (
     <div className="App">
+      <NavigationBar />
       {user.email != "" ? (
         <div className="welcome">
           <h2>
@@ -29,7 +31,7 @@ function App() {
         <LoginForm />
       )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
