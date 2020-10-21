@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
  import React, {useState, useEffect} from 'react';
  import axios from "axios"
  import * as yup from "yup";
@@ -8,7 +10,11 @@
   userName:yup.string().required("Please enter your name").min(2, 'That\'s not valid')  
 })
 
+
+
+ 
  function LoginForm() {
+import React from "react";
 
   const [login, setLogin] =  useState({
     userName:"",
@@ -104,5 +110,31 @@ return(
 
 
 
+<<<<<<< HEAD
  }}
  export default LoginForm
+=======
+ }
+ export default LoginForm
+      <div className="form-inner">
+        <h2>Login</h2>
+        {/*Error! */}
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export default LoginForm;
+>>>>>>> 31a9c7c8da3b06543ee2f136de217e92ade29ef1
