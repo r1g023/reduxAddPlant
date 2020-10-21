@@ -28,10 +28,10 @@ return(
  
 <div className="plantDiv">
  
-{plants.length && plants.map(plant =>(
+{/* {plants.length && plants.map(plant =>(
   <PlantCard />
-))}
-  
+))} */}
+  <PlantCard />
 
 </div>
 
