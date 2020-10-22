@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import LoginForm from "./components/LoginForm.js";
+import LoginForm from "./components/LoginForm";
 import NavigationBar from "./components/NavigationBar";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import FormSignup from "./components/FormSignup";
+import Signup from "./components/Signup";
 import "./App.css";
+import "./index.css";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  // const [currentUser, setCurrentUser] = useState();
 
-  const [plants, setPlants] = useState([]);
+  // const [plants, setPlants] = useState([]);
+
+  // const [login, setLogin] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+
   // const adminUser = {
   //   email: "admin@admin.com",
   //   password: "admin123",
@@ -33,7 +40,7 @@ function App() {
           </Route>
 
           <Route path="/signup">
-            <FormSignup setCurrentUser={setCurrentUser} />
+            <Signup />
           </Route>
         </Switch>
         {/* {user.email != "" ? (

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 // import Validateform from "./Validateform";
 import axios from "axios";
 
-const useForm = (callback, Validateform, props) => {
-  console.log(props, "props inside useForm");
+const useForm = (callback, Validateform) => {
+  const { user, setUser } = useState();
+
   const [values, setValues] = useState({
     fullname: "",
     username: "",
@@ -30,13 +31,14 @@ const useForm = (callback, Validateform, props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(Validateform(values));
-    setIsSubmitting(true);
+    // setErrors(Validateform(values));
+    // setIsSubmitting(true);
+
     axios
       .post("https://water-myplants.herokuapp.com/api/auth/register", values)
       .then((res) => {
         console.log(res, "res inside handleSubmit signup form");
-        props.setCurrentUser(res);
+        setUser(res);
       })
       .catch((err) => {
         console.log(err, "error in signing up form");
@@ -49,6 +51,7 @@ const useForm = (callback, Validateform, props) => {
     }
   }, [errors]);
 
-  return { handleChange, values, handleSubmit, values, errors };
+  return { handleChange, values, handleSubmit, errors };
 };
+
 export default useForm;
