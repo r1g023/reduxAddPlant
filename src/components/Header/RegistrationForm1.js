@@ -19,7 +19,7 @@ const [isDisabled, setIsDisabled] = useState(true)
 const validateChange = e =>{
     yup
     .reach(schema, e.target.email)
-    .validate(e.target.email=== "email" ? e.target.email: e.target.value)
+    .validate(e.target.name=== "email" ? e.target.name: e.target.value)
     .then(valid => {
         setErrors({
             ...errors,
@@ -64,10 +64,10 @@ const validateChange = e =>{
 
 
 const handleChange = (e) => {
-    const {id , value} = e.target   
+    const {name , value} = e.target   
     setRegist(prevState => ({
         ...prevState,
-        [id] : value
+        [name] : value
     }))
 }
 const [post, setpost]= useState([])

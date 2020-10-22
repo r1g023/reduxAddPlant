@@ -1,6 +1,6 @@
- import React, {useState, useEffect} from 'react';
- import axios from "axios"
- import * as yup from "yup";
+import React, {useState, useEffect} from 'react';
+import axios from "axios"
+import * as yup from "yup";
 
 const schema = yup.object().shape({
   userName:yup.string().required("Please enter your name").min(2, 'That\'s not valid')  
@@ -80,26 +80,3 @@ const Loginform = () => {
 }
 
 export default Loginform;
-
-
-
-
- /*
-
-
- function LoginForm() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- }} */
