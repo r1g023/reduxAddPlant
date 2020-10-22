@@ -1,13 +1,58 @@
-import React from "react";
-import useForm from "./useForm";
-import Validateform from "./Validateform";
+import React, { useState } from "react";
+// import useForm from "./useForm";
+// import Validateform from "./Validateform";
 import "./Form.css";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-const FormSignup = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors } = useForm(
-    submitForm,
-    Validateform
-  );
+const FormSignup = (props) => {
+  const { push } = useHistory();
+
+  // const { handleChange, values, handleSubmit, errors } = useForm(
+  //   submitForm,
+  //   Validateform
+  // );
+
+  console.log(props, "props inside useForm");
+  const [values, setValues] = useState({
+    fullname: "",
+    username: "",
+    password: "",
+    phoneNumber: "",
+    email: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    console.log(
+      e.target.name,
+      ":",
+      e.target.value,
+      "handleCHANGE in FormSignup"
+    );
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setErrors(Validateform(values));
+    // setIsSubmitting(true);
+    axios
+      .post("https://water-myplants.herokuapp.com/api/auth/register", values)
+      .then((res) => {
+        console.log(res, "res inside handleSubmit signup form");
+        props.setCurrentUser(res);
+        push("/login");
+      })
+      .catch((err) => {
+        console.log(err, "error in signing up form");
+      });
+  };
 
   return (
     <div className="form-content-right">
@@ -89,9 +134,9 @@ const FormSignup = ({ submitForm }) => {
         <button className="form-input-btn" type="submit">
           Sign Up
         </button>
-        <span className="form-input-login">
+        {/* <span className="form-input-login">
           Already have an account? Login <a href="#">Here</a>
-        </span>
+        </span> */}
       </form>
     </div>
   );
