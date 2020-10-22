@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
-import dataReducer from './dataReducer';
+import { combineReducers } from "redux";
+import { reducer } from "./dataReducer";
 
-export const root = combineReducers({data: dataReducer});
+export const root = combineReducers({ reducer });

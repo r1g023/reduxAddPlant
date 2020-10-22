@@ -1,45 +1,43 @@
-import {useState, useEffect} from  "react"
-import Validateform from "./Validateform"
+import { useState, useEffect } from "react";
+import Validateform from "./Validateform";
 
-const useForm = (callback, Validateform) =>{
-  const [values, setValues] =useState({
-    fullname:"",
-    username:"",
-    password:"",
-    phoneNumber:"",
-  })
-  const [errors, setErrors]= useState({})
-  const [isSubmitting, setIsSubmitting]= useState(false)
+const useForm = (callback, Validateform) => {
+  const [values, setValues] = useState({
+    fullname: "",
+    username: "",
+    password: "",
+    phoneNumber: "",
+    email: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = e =>{
-    const {name, value}= e.target;
+  const handleChange = (e) => {
+    console.log(
+      e.target.name,
+      ":",
+      e.target.value,
+      "handleCHANGE in FormSignup"
+    );
+    const { name, value } = e.target;
     setValues({
-    ...values,
-    [name]:value  
-    })
-  }
+      ...values,
+      [name]: value,
+    });
+  };
 
-const handleSubmit = e => {
-  e.preventDefault()
-  setErrors(Validateform(values))
-  setIsSubmitting(true)
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors(Validateform(values));
+    setIsSubmitting(true);
+  };
 
-useEffect(
-  () => {
+  useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  },
-  [errors]
-);
+  }, [errors]);
 
-
-
-
-
-
-  return{handleChange, values, handleSubmit, values, errors}
-}
-export default useForm
- 
+  return { handleChange, values, handleSubmit, values, errors };
+};
+export default useForm;

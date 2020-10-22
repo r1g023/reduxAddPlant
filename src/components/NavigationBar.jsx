@@ -21,6 +21,11 @@ export default function NavigationBar() {
         <Link className="nav-link" to="/login">
           Login
         </Link>
+
+        <Link className="nav-link" to="/signup">
+          Signup
+        </Link>
+
         <Link className="nav-link" to="/plant-list">
           Plant List
         </Link>
