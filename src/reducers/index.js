@@ -1,4 +1,33 @@
-import { combineReducers } from "redux";
-import { reducer } from "./dataReducer";
+import { GET_DATA, GET_SUCCESS, GET_FAIL } from "../actions";
 
-export const root = combineReducers({ reducer });
+const initialState = {
+  data: [],
+  isFetching: false,
+  error: "",
+};
+
+export const plantReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_DATA:
+      return {
+        ...state,
+        isFetching: true,
+        error: "",
+      };
+
+    case GET_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        data: action.payload,
+      };
+    case GET_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};

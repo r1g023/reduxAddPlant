@@ -1,34 +1,49 @@
 import React, { useState } from "react";
-import LoginForm from "./components/LoginForm.js";
+import LoginForm from "./components/LoginForm";
 import NavigationBar from "./components/NavigationBar";
-import { Route, Link, Switch } from "react-router-dom";
-import FormSignup from "./components/FormSignup";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Signup from "./components/Signup";
 import "./App.css";
+import "./index.css";
 
 function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123",
-  };
-  const [user, setUser] = useState({ name: "", email: "" });
-  const [error, setError] = useState("");
-  const Login = (details) => {
-    console.log(details);
-  };
+  // const [currentUser, setCurrentUser] = useState();
 
-  const LogOut = () => {
-    console.log("logout");
-  };
+  // const [plants, setPlants] = useState([]);
+
+  // const [login, setLogin] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+
+  // const adminUser = {
+  //   email: "admin@admin.com",
+  //   password: "admin123",
+  // };
+  // const [user, setUser] = useState({ name: "", email: "" });
+  // const [error, setError] = useState("");
+  // const Login = (details) => {
+  //   console.log(details);
+  // };
+
+  // const LogOut = () => {
+  //   console.log("logout");
+  // };
   return (
-    <div className="App">
-      <NavigationBar />
+    <BrowserRouter>
+      <div className="App">
+        <NavigationBar />
 
-      <Switch>
-        <Route path="/signup" component={FormSignup} />
-        <Route path="/login" component={LoginForm} />
-        <Route component={Login} />
-      </Switch>
-      {/* {user.email != "" ? (
+        <Switch>
+          <Route path="/login">
+            <LoginForm />
+          </Route>
+
+          <Route path="/signup">
+            <Signup />
+          </Route>
+        </Switch>
+        {/* {user.email != "" ? (
         <div className="welcome"> 
           <h2>
             welcome,<span>{user.name}</span>
@@ -38,7 +53,8 @@ function App() {
       ) : (
     
       )} */}
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

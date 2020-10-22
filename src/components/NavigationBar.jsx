@@ -18,12 +18,12 @@ export default function NavigationBar() {
 
       {/* NAV BAR LINKS TO ROUTES */}
       <nav className="nav-links">
-        <Link className="nav-link" to="/login">
-          Login
-        </Link>
-
         <Link className="nav-link" to="/signup">
           Signup
+        </Link>
+
+        <Link className="nav-link" to="/login">
+          Login
         </Link>
 
         <Link className="nav-link" to="/plant-list">
