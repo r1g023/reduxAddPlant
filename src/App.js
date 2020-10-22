@@ -1,20 +1,13 @@
-
 import React, {useState, useEffect} from 'react';
 import Header from "../src/components/Header/Header"
 import FormSignup from "./components/FormSignup"
 import Form from "../src/components/Form"
-
-
 import {
   BrowserRouter as Router,
   Switch,
-  Route
-} from "react-router-dom";
+  Route} from "react-router-dom";
 import FormSuccess from './components/FormSuccess';
 import NavigationBar from './components/NavigationBar';
-
-
-
 
 
 function App() {
