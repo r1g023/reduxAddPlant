@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
-const Signup = (props) => {
+const Signup = ({ props }) => {
   const [user, setUser] = useState([]);
   const [values, setValues] = useState({
     fullname: "",
