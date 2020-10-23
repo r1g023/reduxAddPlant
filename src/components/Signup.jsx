@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 const Signup = (props) => {
@@ -25,8 +25,8 @@ const Signup = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("https://water-myplants.herokuapp.com/api/auth/register", values)
+    axiosWithAuth()
+      .post("api/auth/register", values)
       .then((res) => {
         console.log(res, "res inside handleSubmit signup form");
         setUser(res.data);

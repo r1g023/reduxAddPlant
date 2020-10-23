@@ -68,7 +68,7 @@ code {
     rgb(39, 176, 255) 0%,
     rgb(0, 232, 236) 100%
   );
-  height: 50vh;
+  height: 40vh;
   padding: 20px;
 }
 
@@ -79,7 +79,7 @@ form {
   flex-direction: column;
   align-items: center;
   background: black;
-  height: 45vh;
+  height: 35vh;
 }
 
 .form-input-btn {

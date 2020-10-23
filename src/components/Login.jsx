@@ -48,7 +48,7 @@ const Login = (props) => {
             />
           </div>
           <button className="form-input-btn" type="submit">
-            Sign Up
+            Sign In
           </button>
         </form>
       </div>
