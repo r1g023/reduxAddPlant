@@ -1,4 +1,5 @@
-import { GET_DATA, GET_SUCCESS, GET_FAIL } from "../actions";
+import React from 'react'
+import {ADD_POST, DELETE_POST,EDIT_POST,FETCHING_START,FETCHING_SUCCESS,FETCHING_FAIL} from '../actions'
 
 const initialState = {
   data: [],
@@ -6,28 +7,59 @@ const initialState = {
   error: "",
 };
 
-export const plantReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_DATA:
-      return {
-        ...state,
-        isFetching: true,
-        error: "",
-      };
+export const rootReducer = ( state = initialState, action) => {
+  switch(action.type){
 
-    case GET_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        data: action.payload,
-      };
-    case GET_FAIL:
-      return {
-        ...state,
-        isFetching: false,
-        error: action.payload,
-      };
-    default:
-      return state;
+      case FETCHING_START:
+          return{
+              ...state,
+              // isFetching:true,
+              // fetchingErr:''
+          }
+      
+      case FETCHING_SUCCESS:
+          // console.log('fetchingSucces action.payload', action.payload)
+          return{
+              ...state,
+              posts:action.payload,
+              // isFetching:false,
+              // fetchingErr:''
+          }
+
+      case FETCHING_FAIL:
+          return{
+              ...state,
+              // isFetching:false,
+              // fetchingErr:'Fetching error'
+          }
+
+      case ADD_POST:
+          // console.log("ADDPost in reducer")
+          // console.log("payload",action.payload)
+
+          return {...state,
+          posts:[...state.posts,
+              action.payload
+          ]
+          }
+
+      case EDIT_POST:
+          console.log('action.payload - EDIT_POST reducer', action.payload)
+          console.log('state.posts', state.posts)
+          return{
+              ...state,
+              posts: state.posts.map(story => story.id === action.payload.id ? action.payload:story)
+          }
+
+      case DELETE_POST:
+          // console.log('action.payload - DELETE_POST reducer', action.payload)
+          // console.log('looking for state id', state.posts)
+          return{
+              ...state,
+              posts:[...state.posts.filter(post => post.id != action.payload )]
+          }
+       
   }
-};
+
+  return state
+}
