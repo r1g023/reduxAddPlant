@@ -3,6 +3,7 @@ import LoginForm from "./components/LoginForm";
 import NavigationBar from "./components/NavigationBar";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 import "./App.css";
 import "./index.css";
 
@@ -30,20 +31,20 @@ function App() {
   //   console.log("logout");
   // };
   return (
-    <BrowserRouter>
-      <div className="App">
-        <NavigationBar />
+    <div className="App">
+      <NavigationBar />
 
-        <Switch>
-          <Route path="/login">
-            <LoginForm />
-          </Route>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
 
-          <Route path="/signup">
-            <Signup />
-          </Route>
-        </Switch>
-        {/* {user.email != "" ? (
+        <Route path="/signup">
+          <Signup />
+        </Route>
+      </Switch>
+
+      {/* {user.email != "" ? (
         <div className="welcome"> 
           <h2>
             welcome,<span>{user.name}</span>
@@ -53,8 +54,7 @@ function App() {
       ) : (
     
       )} */}
-      </div>
-    </BrowserRouter>
+    </div>
   );
 }
 

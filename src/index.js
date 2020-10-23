@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "../src/App";
+import { BrowserRouter } from "react-router-dom";
 // import { plantReducer } from "./reducers";
 // import { createStore, applyMiddleware } from "redux";
 // import { Provider } from "react-redux";
@@ -9,7 +10,9 @@ import App from "../src/App";
 // const store = createStore(plantReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
 
   document.getElementById("root")
 );
