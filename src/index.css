@@ -51,3 +51,60 @@ code {
   background: darkgreen;
   color: white;
 }
+
+/* FORM STYLING FOR SIGNUP */
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup-container {
+  border-radius: 10px;
+  width: 40%;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  height: 50vh;
+  padding: 20px;
+}
+
+form {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  height: 45vh;
+}
+
+.form-input-btn {
+  width: 50%;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  margin: 30px auto 0;
+
+  display: block;
+}
+
+.form-input-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  transition: all 0.4s ease-out;
+}
