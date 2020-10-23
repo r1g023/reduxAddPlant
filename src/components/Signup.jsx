@@ -33,7 +33,7 @@ const Signup = (props) => {
         push("/login");
       })
       .catch((err) => {
-        console.log(err, "error in signing up form");
+        console.log(err, "error in signing up form ");
       });
   };
 
