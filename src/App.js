@@ -8,28 +8,6 @@ import "./App.css";
 import "./index.css";
 
 function App() {
-  // const [currentUser, setCurrentUser] = useState();
-
-  // const [plants, setPlants] = useState([]);
-
-  // const [login, setLogin] = useState({
-  //   username: "",
-  //   password: "",
-  // });
-
-  // const adminUser = {
-  //   email: "admin@admin.com",
-  //   password: "admin123",
-  // };
-  // const [user, setUser] = useState({ name: "", email: "" });
-  // const [error, setError] = useState("");
-  // const Login = (details) => {
-  //   console.log(details);
-  // };
-
-  // const LogOut = () => {
-  //   console.log("logout");
-  // };
   return (
     <div className="App">
       <NavigationBar />
@@ -43,17 +21,6 @@ function App() {
           <Signup />
         </Route>
       </Switch>
-
-      {/* {user.email != "" ? (
-        <div className="welcome"> 
-          <h2>
-            welcome,<span>{user.name}</span>
-          </h2>
-          <button>LogOut</button>
-        </div>
-      ) : (
-    
-      )} */}
     </div>
   );
 }
