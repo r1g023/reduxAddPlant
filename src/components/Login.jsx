@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
-import Loginform from "./LoginForm";
 
 const Login = (props) => {
   const [user, setUser] = useState([]);
-
   const [login, setLogin] = useState({ username: "", password: "" });
-
   const { push } = useHistory();
 
   const handleChanges = (e) => {
@@ -20,6 +17,17 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axiosWithAuth()
+      .post("api/auth/login", login)
+      .then((res) => {
+        console.log(res, "post LOGIN credentials passed");
+        setUser(res.data);
+        window.localStorage.setItem("token", res.data.token);
+        push("/plant-list");
+      })
+      .catch((err) => {
+        console.log(err, "error LOGIN in");
+      });
   };
 
   return (

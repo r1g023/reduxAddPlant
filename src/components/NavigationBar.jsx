@@ -2,17 +2,17 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
 export default function NavigationBar() {
-  const { push } = useHistory();
-
   //   signout button that pushes back to home component
-  const signOut = () => {
+  const { push } = useHistory();
+  const signOut = (props) => {
     window.localStorage.removeItem("token");
-    push("/home");
+    push("google.com");
+    console.log("log out successful");
   };
 
   return (
     <div className="header">
-      <Link to="/home" className="title">
+      <Link to="/signup" className="title">
         Water My Plant App
       </Link>
 
@@ -31,7 +31,7 @@ export default function NavigationBar() {
         </Link>
 
         <Link className="nav-link" to="/add-plant">
-          Add Your Plant
+          Add Plant
         </Link>
 
         <Link className="nav-link" to="/about-team">

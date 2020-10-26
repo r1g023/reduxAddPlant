@@ -28,12 +28,12 @@ const Signup = (props) => {
     axiosWithAuth()
       .post("api/auth/register", values)
       .then((res) => {
-        console.log(res, "res inside handleSubmit signup form");
+        console.log(res, "res inside handleSubmit SIGNUP form");
         setUser(res.data);
         push("/login");
       })
       .catch((err) => {
-        console.log(err, "error in signing up form ");
+        console.log(err, "error in SIGNUP up form ");
       });
   };
 

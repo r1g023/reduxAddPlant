@@ -5,11 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #bdd4e7;
+  background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+  height: 100vh;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .title {
@@ -42,8 +59,8 @@ code {
   color: black;
   font-weight: bold;
   background: rgb(15, 199, 97);
-  padding: 10px;
-  margin: 0;
+  padding: 10px 20px;
+  margin-left: 10px;
 }
 /* Rl Nav Links style */
 .nav-link:hover {
@@ -68,7 +85,7 @@ code {
     rgb(39, 176, 255) 0%,
     rgb(0, 232, 236) 100%
   );
-  height: 40vh;
+  height: 50vh;
   padding: 20px;
 }
 
@@ -79,7 +96,7 @@ form {
   flex-direction: column;
   align-items: center;
   background: black;
-  height: 35vh;
+  height: 45vh;
 }
 
 .form-input-btn {
@@ -107,4 +124,80 @@ form {
     rgb(0, 232, 236) 100%
   );
   transition: all 0.4s ease-out;
+}
+
+/* PLANT LIST/ITEM AND CONTENT STYLING */
+
+h1 {
+  text-align: center;
+}
+
+.loader-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plantList {
+  background: gray;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #3ee577;
+  background-image: linear-gradient(315deg, #3ee577 0%, #42fcdb 74%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.plantItem {
+  width: 30%;
+  margin: 9px;
+  padding: 10px;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  color: white;
+  border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px 20px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.buttons:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+
+.dynamicCard {
+  width: 30%;
+  margin: 9px;
+  padding: 10px;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  color: white;
+  border-radius: 10px;
+}
+
+.dynamicCard:hover {
+  text-decoration: none;
 }
