@@ -6,7 +6,7 @@ export default function NavigationBar() {
   const { push } = useHistory();
   const signOut = (props) => {
     window.localStorage.removeItem("token");
-    push("google.com");
+    push("/login");
     console.log("log out successful");
   };
 
@@ -38,7 +38,7 @@ export default function NavigationBar() {
           About Team
         </Link>
 
-        <Link className="nav-link" to="/signout" onClick={signOut}>
+        <Link className="nav-link" onClick={signOut}>
           Sign out
         </Link>
       </nav>

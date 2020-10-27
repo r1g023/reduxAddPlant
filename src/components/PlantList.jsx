@@ -2,29 +2,38 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Loader from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { getPlants } from "../store/actions";
+import { connect } from "react-redux";
 
 const PlantList = (props) => {
-  const [plants, setPlants] = useState([]);
-  const [loading, isLoading] = useState(true);
+  console.log(props, "props in plantList");
+  // const [plants, setPlants] = useState([]);
+  // const [loading, isLoading] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  // isLoading(false);
+  // axiosWithAuth()
+  //   .get("api/plants")
+  //   .then((res) => {
+  //     console.log(res, "fetching plants from PLANTLIST");
+  //     setPlants(res.data);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err, "erro fetching plants from PLANTLIST");
+  //   });
+  //   }, 1000);
+  // }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      isLoading(false);
-      axiosWithAuth()
-        .get("api/plants")
-        .then((res) => {
-          console.log(res, "fetching plants from PLANTLIST");
-          setPlants(res.data);
-        })
-        .catch((err) => {
-          console.log(err, "erro fetching plants from PLANTLIST");
-        });
-    }, 1000);
+      props.getPlants();
+      console.log("get plants");
+    }, 1500);
   }, []);
 
   return (
     <>
-      {loading ? (
+      {props.isFetching ? (
         <Loader
           className="loader-spinner"
           type="Puff"
@@ -35,7 +44,7 @@ const PlantList = (props) => {
         />
       ) : (
         <div className="plantList">
-          {plants.map((item) => (
+          {props.plants.map((item) => (
             <div className="plantItem" key={item.id}>
               <Link className="dynamicCard" to={`/plant-list/${item.id}`}>
                 <h4>Name: {item.plant_name}</h4>
@@ -58,4 +67,13 @@ const PlantList = (props) => {
   );
 };
 
-export default PlantList;
+const mapStateToProps = (state) => {
+  console.log(state, "state inside mapStateToProps");
+  return {
+    plants: state.plants,
+    isFetching: state.isFetching,
+    errors: state.errors,
+  };
+};
+
+export default connect(mapStateToProps, { getPlants })(PlantList);
