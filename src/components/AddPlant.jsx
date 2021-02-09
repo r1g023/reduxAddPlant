@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
-import { addPlant } from "../store/actions";
+// import { connect } from "react-redux";
+// import { addPlant } from "../store/actions";
 
 const AddPlant = (props) => {
-  // const [postPlant, setPostPlant] = useState();
+  const [postPlant, setPostPlant] = useState();
   const [addPlant, setAddPlant] = useState({
     id: Date.now(),
     plant_name: "",
@@ -25,20 +25,19 @@ const AddPlant = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //   axiosWithAuth()
-    //     .post(`api/plants`, addPlant)
-    //     .then((res) => {
-    //       console.log(res, "add plant submit succsesful");
-    //       setPostPlant(res.data);
-    //       push("/plant-list");
-    //     })
-    //     .catch((err) => {
-    //       console.log(err, "error adding plant");
-    //     });
-    // };
-    //implemented redux, easy peasy
-    props.addPlant(addPlant);
+    axiosWithAuth()
+      .post(`api/plants`, addPlant)
+      .then((res) => {
+        console.log(res, "add plant submit succsesful ");
+        setPostPlant(res.data);
+        push("/plant-list");
+      })
+      .catch((err) => {
+        console.log(err, "error adding plant");
+      });
   };
+  //implemented redux, easy peasy
+  // props.addPlant(addPlant); // THIS IS FOR REDUX
 
   return (
     <div className="signup-container">
@@ -81,12 +80,15 @@ const AddPlant = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log(state, "state inside addPlant state to props");
-  return {
-    plants: state.plants,
-    isFetching: state.isFetching,
-    errors: state.errors,
-  };
-};
-export default connect(mapStateToProps, { addPlant })(AddPlant);
+// use with REDUX
+// const mapStateToProps = (state) => {
+//   console.log(state, "state inside addPlant state to props");
+//   return {
+//     plants: state.plants,
+//     isFetching: state.isFetching,
+//     errors: state.errors,
+//   };
+// };
+// export default connect(mapStateToProps, { addPlant })(AddPlant);
+
+export default AddPlant;
